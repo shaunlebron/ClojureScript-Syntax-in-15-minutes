@@ -94,14 +94,14 @@ later).
 A __`map`__ is an associative collection that "maps" a key value to another value.
 It is denoted by curly brackets.  (Keys are often `keywords` but can be anything)
 
-``clj
+```clj
 {:msg "hello" :pi 3.14 :primes [2 3 5 7 11 13]}
 ```
 
 Since commas and newlines are considered whitespace in ClojureScript,
 you can use them to make `map`s more readable:
 
-``clj
+```clj
 {:msg "hello", :pi 3.14, :primes [2 3 5 7 11 13]}
 ; or
 { :msg "hello"
