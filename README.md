@@ -1,32 +1,17 @@
-# ClojureScript
+# ClojureScript in 15 minutes
 
 <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Clojure_Programming_Language_Logo_Icon_SVG.svg/200px-Clojure_Programming_Language_Logo_Icon_SVG.svg.png" align="right" />
 
-Hello and welcome to ClojureScript (CLJS)!  It is a new language for front-end
-web development (i.e. a language that compiles to Javascript for use in the
-browser).
+Hello, this is my attempt at a very concise guide to ClojureScript's
+fundamentals!  It is a new language for front-end web development.  It compiles
+to Javascript for use in the browser.
 
-## The Pitch
-
-CLJS is fundamentally different from Javascript and other compile-to-JS
-languages like Dart, CoffeeScript, and LiveScript.  It uses a more powerful yet
-simpler syntax, it employs useful defaults to combat the "new spaghetti code"
-that is mutatable stateful objects, and it supports a lot of UI data-binding
-patterns at a native language level.
-
-## Setting Up
-
-__Leiningen__ is the command-line tool used for building ClojureScript projects.
-
-- [Install JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (if you haven't already).
-- [Install Leiningen](http://leiningen.org/).
-
-If you want to setup __Sublime Text Editor__ to highlight ClojureScript files,
-open any file with a `.cljs` extension in Sublime, then select:
-
-```
-View > Syntax > Open all with current extension as... > Clojure
-```
+ClojureScript (CLJS) is fundamentally different from Javascript and other
+compile-to-JS languages like Dart, CoffeeScript, and LiveScript.  It uses a
+more powerful yet simpler syntax, it employs useful defaults to combat the "new
+spaghetti code" that is mutatable stateful objects, and it supports a lot of UI
+data-binding patterns at a native language level.  (This guide only covers the
+first point.)
 
 ## Syntax
 
@@ -162,6 +147,18 @@ flexibility of the language.
 
 ## Useful Resources
 
+__Leiningen__ is the command-line tool used for building ClojureScript projects.
+
+- [Install JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (if you haven't already).
+- [Install Leiningen](http://leiningen.org/).
+
+If you want to setup __Sublime Text Editor__ to highlight ClojureScript files,
+open any file with a `.cljs` extension in Sublime, then select:
+
+```
+View > Syntax > Open all with current extension as... > Clojure
+```
+
 Here are the resources and steps that I took while learning ClojureScript.
 (Most resources covering Clojure also apply to ClojureScript, since they
 share a significant subset with each other.)
@@ -179,3 +176,4 @@ share a significant subset with each other.)
 1. Experimenting in <http://clojurescript.net/> for ClojureScript REPL with a browser context.
 1. Reading docstrings of functions I encounter with `(doc <funcname>)` in REPL.
 1. [Miscellaneous ClojureScript things to know](https://github.com/shaunlebron/ClojureSheet#clojurescript-stuff)
+
