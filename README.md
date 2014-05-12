@@ -28,8 +28,6 @@ View > Syntax > Open all with current extension as... > Clojure
 
 ## Syntax
 
-#### Data
-
 There is __literal data__:
 
 ```clj
