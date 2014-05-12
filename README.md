@@ -1,17 +1,20 @@
-# ClojureScript in 15 minutes
+# ClojureScript Syntax in 15 minutes
 
 <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Clojure_Programming_Language_Logo_Icon_SVG.svg/200px-Clojure_Programming_Language_Logo_Icon_SVG.svg.png" align="right" />
 
-Hello, this is my attempt at a very concise guide to ClojureScript's
-fundamentals!  It is a new language for front-end web development.  It compiles
-to Javascript for use in the browser.
+Hello, this is my attempt at a very concise guide to ClojureScript's syntax!
+ClojureScript is a new language for front-end web development.  It compiles to
+Javascript for use in the browser.
 
-ClojureScript (CLJS) is fundamentally different from Javascript and other
+ClojureScript is fundamentally different from Javascript and other
 compile-to-JS languages like Dart, CoffeeScript, and LiveScript.  It uses a
 more powerful yet simpler syntax, it employs useful defaults to combat the "new
 spaghetti code" that is mutatable stateful objects, and it supports a lot of UI
-data-binding patterns at a native language level.  (This guide only covers the
-first point.)
+data-binding patterns at a native language level.
+
+I believe that ClojureScript's largest barrier to entry for beginners is
+probably the foreign nature of its syntax.  I hope to explain it as plainly and
+succinctly as possible with this guide.
 
 ## Syntax
 
@@ -79,10 +82,10 @@ If the first element of a list is a __function__, then the rest of the elements
 are evaluated and passed to it.
 
 ```clj
-; String concatenation
-(str "Hello" "World")
+; String concatenate function
+(str "Hello " "World")  ; => "Hello World"
 
-; Arithmetic
+; Arithmetic functions
 (= a b)     ; equality (true or false)
 (+ a b)     ; sum
 (- a b)     ; difference
@@ -97,8 +100,8 @@ are evaluated and passed to it.
 ```
 
 If the first element of a list is one of the language's few __special forms__,
-then the rest of the elements are passed to it unevaluated.  (There are only 16
-special forms.)
+then the rest of the elements are passed to it unevaluated.  (There are only [16
+special forms](http://clojure.org/special_forms).)
 
 ```clj
 (if (= a b c)   ; <-- determines if a=b=c
@@ -122,12 +125,12 @@ special forms.)
 ```
 
 If the first element of a list is a __macro__, then the rest of the elements
-are passed to it unevaluated, then the resulting value of the call is evaluated.
+are passed to it unevaluated, but the resulting value of the call is evaluated.
 Let's illustrate that difference with the following diagram:
 
 ![calls](img/calls.png)
 
-This difference in evaluation allows macros to act like code-generating
+This difference in evaluation allows macros to act as code-generating
 functions.  For example, the `defn` macro expands to `def` and `fn`, as we used
 separately in a previous example:
 
@@ -141,23 +144,11 @@ separately in a previous example:
   `(def ~name (fn ~args ~body)))
 ```
 
-App developers rarely need to create their own macros, but it is an
+__App developers rarely need to create their own macros__, but it is an
 indispensible tool for the library developer to give app developers the full
 flexibility of the language.
 
 ## Useful Resources
-
-__Leiningen__ is the command-line tool used for building ClojureScript projects.
-
-- [Install JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (if you haven't already).
-- [Install Leiningen](http://leiningen.org/).
-
-If you want to setup __Sublime Text Editor__ to highlight ClojureScript files,
-open any file with a `.cljs` extension in Sublime, then select:
-
-```
-View > Syntax > Open all with current extension as... > Clojure
-```
 
 Here are the resources and steps that I took while learning ClojureScript.
 (Most resources covering Clojure also apply to ClojureScript, since they
