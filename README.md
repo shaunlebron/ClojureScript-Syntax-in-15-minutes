@@ -1,5 +1,7 @@
 # ClojureScript
 
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Clojure_Programming_Language_Logo_Icon_SVG.svg/200px-Clojure_Programming_Language_Logo_Icon_SVG.svg.png" align="right" />
+
 Hello and welcome to ClojureScript (CLJS)!  It is a new language for front-end
 web development (i.e. a language that compiles to Javascript for use in the
 browser).
