@@ -148,6 +148,55 @@ __App developers rarely need to create their own macros__, but it is an
 indispensible tool for the library developer to give app developers the full
 flexibility of the language.
 
+#### Simple substitutions
+
+There are a few [macro characters](http://clojure.org/reader#The%20Reader--Macro%20characters) that help make the language succinct
+by performing simple substitutions (not full macros):
+
+```clj
+; short-hand for creating a simple function:
+; #(...) => (fn [args] (...))
+
+#(* 3 %)         ; => (fn [x] (* 3 x))
+
+#(* 3 (+ %1 %2)) ; => (fn [x y] (* 3 (+ x y)))
+```
+
+## That's it for Syntax
+
+You need to know more than syntax to be proficient in a language, of course.
+But you should now know enough to be comfortable looking around at examples and
+reasoning about how data is being evaluated and passed around:
+
+```clj
+; printing to the javascript console
+(js/console.log "Hello World!")
+
+; creating local bindings (constants)
+(let [a (+ 1 2)
+      b (* 2 3)]
+  (js/console.log "The value of a is" a)
+  (js/console.log "The value of b is" b))
+
+; generate a sequence of numbers
+(range 4) ; => (0 1 2 3)
+
+; generate first four multiples of 3
+(map #(* % 3) (range 4))           ;=> (0 3 6 9)
+
+; count elements in a sequence
+(count "Bob")     ; => 3
+(count [4 5 2 3]) ; => 4
+
+; select three letter names from a list
+(def names ["Bob" "David" "Sue"])
+(filter #(= (count %) 3) names) ; => ("Bob" "Sue")
+```
+
+(Don't worry about getting lost in parentheses.  All modern text editors will
+highlight the corresponding ones and will indent your code automatically for
+readability, as is standard in every other language.)
+
 ## Useful Resources
 
 Here are the resources and steps that I took while learning ClojureScript.
