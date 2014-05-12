@@ -109,8 +109,9 @@ are evaluated and passed to it.
 11
 ```
 
-If the first element of a list is one of 16 __special forms__, then the rest of
-the elements are passed to it _unevaluated_.
+If the first element of a list is one of the language's few __special forms__,
+then the rest of the elements are passed to it unevaluated.  (There are only 16
+special forms.)
 
 ```clj
 (if (= a b c)   ; <-- determines if a=b=c
@@ -134,8 +135,8 @@ the elements are passed to it _unevaluated_.
 ```
 
 If the first element of a list is a __macro__, then the rest of the elements
-are passed to it unevaluated, but the value returned by a macro evaluated.
-Let's illustrate that difference:
+are passed to it unevaluated, then the resulting value of the call is evaluated.
+Let's illustrate that difference with the following diagram:
 
 ![calls](img/calls.png)
 
