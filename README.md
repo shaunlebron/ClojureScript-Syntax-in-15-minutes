@@ -1,6 +1,4 @@
-# ClojureScript Syntax in 15 minutes
-
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Clojure_Programming_Language_Logo_Icon_SVG.svg/200px-Clojure_Programming_Language_Logo_Icon_SVG.svg.png" align="right" />
+<img align="center" src="http://i.imgur.com/JGVQjsS.png" width="300">
 
 Hello, this is my attempt at a very concise guide to ClojureScript's syntax!
 ClojureScript is a new language for front-end web development.  It compiles to
