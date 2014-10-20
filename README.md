@@ -42,7 +42,7 @@ And there is __symbolic data__:
 
 ```clj
 ; symbol (represents a named value)
-foo
+'foo
 
 ; list (represents a "call")
 (foo :bar 3.14)
