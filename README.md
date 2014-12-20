@@ -1,4 +1,4 @@
-<img align="center" src="http://i.imgur.com/JGVQjsS.png" width="300">
+![cljs](img/cljs.png)
 
 Hello, this is my attempt at a very concise guide to ClojureScript's syntax!
 ClojureScript is a new language for front-end web development.  It compiles to
