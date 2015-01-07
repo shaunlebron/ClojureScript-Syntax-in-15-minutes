@@ -77,7 +77,7 @@ ClojureScript can evaluate data to create a new "value" from it.
 #### Calls
 
 If the first element of a list is a __function__, then the rest of the elements
-are evaluated and passed to it.
+are evaluated and passed to it ([prefix notation](http://en.wikipedia.org/wiki/Polish_notation)).
 
 ```clj
 ; String concatenate function
