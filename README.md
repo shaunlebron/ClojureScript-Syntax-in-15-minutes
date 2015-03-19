@@ -2,9 +2,9 @@
 
 Hello, this is my attempt at a very concise guide to ClojureScript's syntax!
 ClojureScript is a new language for front-end web development.  It compiles to
-Javascript for use in the browser.
+JavaScript for use in the browser.
 
-ClojureScript is fundamentally different from Javascript and other
+ClojureScript is fundamentally different from JavaScript and other
 compile-to-JS languages like Dart, CoffeeScript, and LiveScript.  It uses a
 more powerful yet simpler syntax, it employs useful defaults to combat the "new
 spaghetti code" that is mutatable stateful objects, and it supports a lot of UI
@@ -29,7 +29,7 @@ There is __literal data__:
 :foo
 
 ; vector (array)
-[:bar 3.14 "hello"] 
+[:bar 3.14 "hello"]
 
 ; map (associative array)
 {:msg "hello" :pi 3.14 :primes [2 3 5 7 11 13]}
@@ -209,7 +209,7 @@ share a significant subset with each other.)
 1. Reading [Clojure Functional Programming](http://clojure.org/functional_programming)
 1. Thumbing through [Clojure Core API](http://clojure.github.io/clojure/clojure.core-api.html)
 1. Reading [ClojureScript - Differences from Clojure - Host Interop](https://github.com/clojure/clojurescript/wiki/Differences-from-Clojure#wiki-host-interop) for accessing javascript properties like `(.-Infinity js/window)` and functions like `(.sqrt js/Math 25)`.
-1. Reading [Javascript to ClojureScript synonyms](http://kanaka.github.io/clojurescript/web/synonym.html)
+1. Reading [JavaScript to ClojureScript synonyms](http://kanaka.github.io/clojurescript/web/synonym.html)
 1. Experimenting in `lein repl` for Clojure REPL.
 1. Experimenting in <http://clojurescript.net/> for ClojureScript REPL with a browser context.
 1. Reading docstrings of functions I encounter with `(doc <funcname>)` in REPL.
