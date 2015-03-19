@@ -29,7 +29,7 @@ There is __literal data__:
 :foo
 
 ; vector (array)
-[:bar 3.14 "hello"] 
+[:bar 3.14 "hello"]
 
 ; map (associative array)
 {:msg "hello" :pi 3.14 :primes [2 3 5 7 11 13]}
