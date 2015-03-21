@@ -5,7 +5,7 @@ ClojureScript is a new language for front-end web development.  It compiles to
 JavaScript for use in the browser.
 
 ClojureScript is fundamentally different from JavaScript and other
-compile-to-JS languages like Dart, CoffeeScript, and LiveScript.  It uses a
+compile-to-JS languages like Dart, CoffeeScript, and TypeScript.  It uses a
 more powerful yet simpler syntax, it employs useful defaults to combat the "new
 spaghetti code" that is mutatable stateful objects, and it supports a lot of UI
 data-binding patterns at a native language level.
