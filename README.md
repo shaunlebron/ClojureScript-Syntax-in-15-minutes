@@ -195,12 +195,21 @@ reasoning about how data is being evaluated and passed around:
 highlight the corresponding ones and will indent your code automatically for
 readability, as is standard in every other language.)
 
+## A more complete look
+
+The [syntax section] of the [ClojureScript API reference] aims to be a more comprehensive look at
+the possible syntax forms and shows the source code for how each are read/parsed.
+
+[syntax section]:https://github.com/cljsinfo/api-refs/tree/catalog#syntax-api
+[ClojureScript API reference]:https://github.com/cljsinfo/api-refs/tree/catalog
+
 ## Useful Resources
 
 Here are the resources and steps that I took while learning ClojureScript.
 (Most resources covering Clojure also apply to ClojureScript, since they
 share a significant subset with each other.)
 
+1. Reading through the [ClojureScript Wiki](https://github.com/clojure/clojurescript/wiki)
 1. Reading the book [ClojureScript Up and Running](http://synrc.com/publications/cat/Functional%20Languages/Clojure/Oreilly.ClojureScript.Up.and.Running.Oct.2012.pdf)
 1. Reading the book [Clojure Programming](http://bit.ly/clojurebook)
 1. Doing [ClojureScript Koans](http://clojurescriptkoans.com)
