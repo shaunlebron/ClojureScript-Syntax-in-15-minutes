@@ -200,8 +200,8 @@ readability, as is standard in every other language.)
 The [syntax section] of the [ClojureScript API reference] aims to be a more comprehensive look at
 the possible syntax forms and shows the source code for how each are read/parsed.
 
-[syntax section]:https://github.com/cljsinfo/api-refs/tree/catalog#syntax-api
-[ClojureScript API reference]:https://github.com/cljsinfo/api-refs/tree/catalog
+[syntax section]:https://github.com/cljsinfo/cljs-api-docs/tree/catalog#syntax
+[ClojureScript API reference]:https://github.com/cljsinfo/cljs-api-docs/tree/catalog
 
 ## Useful Resources
 
