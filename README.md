@@ -195,7 +195,14 @@ reasoning about how data is being evaluated and passed around:
 highlight the corresponding ones and will indent your code automatically for
 readability, as is standard in every other language.)
 
-## A more complete look
+## ClojureScript vs JSX in HTML templating
+
+See [Jumping from HTML to ClojureScript](https://github.com/shaunlebron/jumping-from-html-to-clojurescript) to see how ClojureScript's syntax solves the verbosity/flexibility problems faced in the JS community by [JSX].
+
+[Jumping from HTML to ClojureScript]:https://github.com/shaunlebron/jumping-from-html-to-clojurescript
+[JSX]:https://facebook.github.io/react/docs/jsx-in-depth.html
+
+## A complete reference
 
 The [syntax section] of the [ClojureScript API reference] aims to be a more comprehensive look at
 the possible syntax forms and shows the source code for how each are read/parsed.
