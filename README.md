@@ -1,14 +1,14 @@
 ![cljs](img/cljs.png)
 
 Hello, this is my attempt at a very concise guide to ClojureScript's syntax!
-ClojureScript is a new language for front-end web development.  It compiles to
+ClojureScript is a Lisp dialect for front-end web development.  It compiles to
 JavaScript for use in the browser.
 
 ClojureScript is fundamentally different from JavaScript and other
 compile-to-JS languages like Dart, CoffeeScript, and TypeScript.  It uses a
-more powerful yet simpler syntax, it employs useful defaults to combat the "new
-spaghetti code" that is mutatable stateful objects, and it supports a lot of UI
-data-binding patterns at a native language level.
+more powerful yet simpler syntax.  There are other differences not related
+to syntax, such as default immutability to combat the "new spaghetti code"
+that is mutatable stateful objects, and sane state management allowing language-level data-binding.
 
 I believe that ClojureScript's largest barrier to entry for beginners is
 probably the foreign nature of its syntax.  I hope to explain it as plainly and
