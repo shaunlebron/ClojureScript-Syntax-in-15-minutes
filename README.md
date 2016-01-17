@@ -14,6 +14,10 @@ I believe that ClojureScript's largest barrier to entry for beginners is
 probably the foreign nature of its syntax.  I hope to explain it as plainly and
 succinctly as possible with this guide.
 
+> __Also__, check out [Parinfer] if you want a simpler way to manage parentheses in ClojureScript.
+
+[Parinfer]:http://shaunlebron.github.io/parinfer/
+
 ## Syntax
 
 There is __literal data__:
