@@ -1,5 +1,7 @@
 ![cljs](img/cljs.png)
 
+> __If you just wanna try something__, check out the [interactive tutorial](http://chimeces.com/cljs-browser-repl/).
+
 Hello, this is my attempt at a very concise guide to ClojureScript's syntax!
 ClojureScript is a Lisp dialect for front-end web development.  It compiles to
 JavaScript for use in the browser.
