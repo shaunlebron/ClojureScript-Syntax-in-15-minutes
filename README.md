@@ -210,11 +210,11 @@ See [Jumping from HTML to ClojureScript](https://github.com/shaunlebron/jumping-
 
 ## A complete reference
 
-The [syntax section] of the [ClojureScript API reference] aims to be a more comprehensive look at
-the possible syntax forms and shows the source code for how each are read/parsed.
+The syntax section of the [ClojureScript API reference] is a comprehensive look at
+the possible syntax forms and even shows the source code for how each are read/parsed.
 
 [syntax section]:https://github.com/cljsinfo/cljs-api-docs/blob/catalog/INDEX.md#syntax
-[ClojureScript API reference]:https://github.com/cljsinfo/cljs-api-docs/blob/catalog/INDEX.md
+[ClojureScript API reference]:http://cljs.github.io/api
 
 ## Useful Resources
 
