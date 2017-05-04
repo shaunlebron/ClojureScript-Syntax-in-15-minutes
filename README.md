@@ -105,7 +105,7 @@ are evaluated and passed to it ([prefix notation](http://en.wikipedia.org/wiki/P
 
 If the first element of a list is one of the language's few __special forms__,
 then the rest of the elements are passed to it unevaluated.  (There are only [22
-special forms](https://github.com/cljsinfo/cljs-api-docs/blob/catalog/refs/library/special.md).)
+special forms](https://clojure.org/reference/special_forms).)
 
 ```clj
 (if (= a b c)   ; <-- determines if a=b=c
