@@ -1,7 +1,5 @@
 ![cljs](img/cljs.png)
 
-Translations: [中文](README.zh.md).
-
 > __If you just wanna try something__, check out the [interactive tutorial](http://chimeces.com/cljs-browser-repl/).
 
 Hello, this is my attempt at a very concise guide to ClojureScript's syntax!
