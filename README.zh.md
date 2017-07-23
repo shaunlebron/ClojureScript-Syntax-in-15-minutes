@@ -1,64 +1,63 @@
 ![cljs](img/cljs.png)
 
-> __If you just wanna try something__, check out the [interactive tutorial](http://chimeces.com/cljs-browser-repl/).
+Translations: [中文](README.zh.md).
 
-Hello, this is my attempt at a very concise guide to ClojureScript's syntax!
-ClojureScript is a Lisp dialect for front-end web development.  It compiles to
-JavaScript for use in the browser.
+> __如果你注释想试试__, 可以看看这个[交互式教程](http://chimeces.com/cljs-browser-repl/).
 
-ClojureScript is fundamentally different from JavaScript and other
-compile-to-JS languages like Dart, CoffeeScript, and TypeScript.  It uses a
-more powerful yet simpler syntax.  There are other differences not related
-to syntax, such as default immutability to combat the "new spaghetti code"
-that is mutatable stateful objects, and sane state management allowing language-level data-binding.
+Hello, 我在在尝试给 ClojureScript 语法写一份简明的教程.
+ClojureScript 是一门适用于 Web 前端开发的 Lisp 方言, 它被编译到 JavaScript 在浏览器中使用.
 
-I believe that ClojureScript's largest barrier to entry for beginners is
-probably the foreign nature of its syntax.  I hope to explain it as plainly and
-succinctly as possible with this guide.
+ClojureScript 在根本上就和 JavaScript 或者其他编译到 JavaScript 的语言不一样, 比如和 Dart, CoffeeScript 和 TypeScript.
+它使用了更强大的语法, 但也更简单. 也有一些其他一些语法之外的区别,
+比如说默认采用不可变性, 用来解决状态可变的对象造成"新型 spaghetti code",
+同时提供正常的状态管理功能用来实现语言级别的数据绑定.
 
-> __Also__, check out [Parinfer] if you want a simpler way to manage parentheses in ClojureScript.
+我相信对于新手来说 ClojureScript 最大的障碍在于他令人感到陌生的语法.
+在这份教程里, 我希望能尽可能平常并且简洁解释一遍.
+
+> __同时__, 如果你需要为 ClojureScript 找一个更简单的管理括号的方案, 请了解一下 [Parinfer].
 
 [Parinfer]:http://shaunlebron.github.io/parinfer/
 
-## Syntax
+## 语法
 
-There is __literal data__:
+这是__literal data(字面量数据)__:
 
 ```clj
-; number
+; number(数字)
 1.23
 
-; string
+; string(字符串)
 "foo"
 
-; keyword (like strings, but used as map keys)
+; keyword(关键字, 就像字符串, 但是用于 map 的键)
 :foo
 
-; vector (array)
+; vector(向量, 或者说数组, array)
 [:bar 3.14 "hello"]
 
-; map (associative array)
+; map(关联数字, associative array)
 {:msg "hello" :pi 3.14 :primes [2 3 5 7 11 13]}
 
-; set (distinct elements)
+; set(distinct elements, 元素唯一)
 #{:bar 3.14 "hello"}
 ```
 
-And there is __symbolic data__:
+这是__symbolic data(符号化数据)__:
 
 ```clj
-; symbol (represents a named value)
+; symbol(符号, 表示一个有名字的值)
 foo
 
-; list (represents a "call")
+; list(链表, 表示一次"调用")
 (foo :bar 3.14)
 ```
 
-#### Evaluation
+#### 求值
 
-ClojureScript can evaluate data to create a new "value" from it.
+ClojureScript 可以对数据求值从而创建出新的"数值".
 
-1. Literal data evaluates to itself, of course:
+1. 字面量数据求值之后得到自身, 显然地:
 
     ```clj
     1.23                 ; => 1.23
@@ -66,13 +65,13 @@ ClojureScript can evaluate data to create a new "value" from it.
     [:bar 3.14 "hello"]  ; => [:bar 3.14 "hello"]
     ```
 
-1. A __symbol__ evaluates to the value bound to it:
+1. __符号__求值之后得到绑定在上面的数值:
 
     ```clj
     foo                  ; => 3
     ```
 
-1. A __list__ evaluates to the return value of a "call".
+1. __list__求值之后得到"调用"的结果.
 
     ```clj
     (+ 1 2 3)            ; => 6
@@ -80,45 +79,43 @@ ClojureScript can evaluate data to create a new "value" from it.
     (if true "y" "n")    ; => "y"
     ```
 
-#### Calls
+#### 调用
 
-If the first element of a list is a __function__, then the rest of the elements
-are evaluated and passed to it ([prefix notation](http://en.wikipedia.org/wiki/Polish_notation)).
+如果列表的第一个元素是一个__函数__, 那么其余元素会被求值并传给它 ([prefix notation](http://en.wikipedia.org/wiki/Polish_notation)).
 
 ```clj
-; String concatenate function
+; 字符串合并函数
 (str "Hello " "World")  ; => "Hello World"
 
-; Arithmetic functions
-(= a b)     ; equality (true or false)
-(+ a b)     ; sum
-(- a b)     ; difference
-(* a b c)   ; product
+; 运算函数
+(= a b)     ; 等式(true 或者 false)
+(+ a b)     ; 求和
+(- a b)     ; 求差
+(* a b c)   ; 求积
 (< a b c)   ; true if a < b < c
 
-; Evaluation Steps
-(+ k (* 2 4))   ; assume k evalutes to 3
-(+ 3 (* 2 4))   ; (* 2 4) evaluates to 8
-(+ 3 8)         ; (+ 3 8) evalutes to 11
+; 求值步
+(+ k (* 2 4))   ; 这里假设 k 求值得到 3
+(+ 3 (* 2 4))   ; (* 2 4) 求值得到 8
+(+ 3 8)         ; (+ 3 8) 求值得到 11
 11
 ```
 
-If the first element of a list is one of the language's few __special forms__,
-then the rest of the elements are passed to it unevaluated.  (There are only [22
-special forms](https://clojure.org/reference/special_forms).)
+如果列表的第一个元素是一个__特殊形式(Special Form)__, 那么其余元素传递给它时不做求值.
+(总共有 [22 的特殊形式](https://clojure.org/reference/special_forms).)
 
 ```clj
-(if (= a b c)   ; <-- determines if a=b=c
-    (foo 1)     ; <-- only evaluated if true
-    (bar 2)     ; <-- only evaluated if false
+(if (= a b c)   ; <-- 判断是否 a=b=c
+    (foo 1)     ; <-- 只在 true 的时候求值
+    (bar 2)     ; <-- 只在 false 的时候求值
     )
 
-; define k as 3
-(def k 3)       ; <-- notice that k is not evaluated here
-                ;     (def needs the symbol k, not its value)
+; 定义(define) k 为 3
+(def k 3)       ; <-- 注意这个 k 不会被求值
+                ;     (def 需要 k 这个符号, 而不是它的值)
 
-; make a greeting function
-(fn [username]              ; <-- expected parameters vector
+; 创建一个 greeting 函数
+(fn [username]              ; <-- 期望参数是 Vector 格式的
   (str "Hello " username))
 
 ; oops, give the function a name
@@ -128,37 +125,33 @@ special forms](https://clojure.org/reference/special_forms).)
 (greet "Bob")   ; => "Hello Bob"
 ```
 
-If the first element of a list is a __macro__, then the rest of the elements
-are passed to it unevaluated, but the resulting value of the call is evaluated.
-Let's illustrate that difference with the following diagram:
+如果列表的第一个元素是个 __Macro__, 那么其余元素传给它时不做求值,
+但是调用之后的结果是经过求值. 用下面这个图形对它们的区别做一下展示:
 
 ![calls](img/calls.png)
 
-This difference in evaluation allows macros to act as code-generating
-functions.  For example, the `defn` macro expands to `def` and `fn`, as we used
-separately in a previous example:
+求值过程上的区别使得 Macro 可以作为生成代码的函数使用.
+比如 `defn` 这个 Macro 展开成前面例子中遇到的 `def` 和 `fn`:
 
 ```clj
-; create a named function using the defn macro
+; 用 defn 这个 Macro 创建一个具名函数
 (defn greet [username]
   (str "Hello " username))
 
-; the definition for the defn macro (over-simplified)
+; defn 这个 Macro 的定义(极度简化版本)
 (defmacro defn [name args body]
   `(def ~name (fn ~args ~body)))
 ```
 
-__App developers rarely need to create their own macros__, but it is an
-indispensible tool for the library developer to give app developers the full
-flexibility of the language.
+__应用开发者极少需要为他们自己创建 Macros__, 但这项功能对于类库开发者来说是不可或缺的,
+通过 Macro 他们可以为应用开发者提供语言本身最大的灵活性.
 
-#### Simple substitutions
+#### 简单的替换
 
-There are a few [macro characters](http://clojure.org/reader#The%20Reader--Macro%20characters) that help make the language succinct
-by performing simple substitutions (not full macros):
+有几个 [Macro 字符](http://clojure.org/reader#The%20Reader--Macro%20characters)被用来提供简单的替换, 让语言变得更简洁(不全是 Macro).
 
 ```clj
-; short-hand for creating a simple function:
+; 简单的函数的一种简写
 ; #(...) => (fn [args] (...))
 
 #(* 3 %)         ; => (fn [x] (* 3 x))
@@ -166,61 +159,56 @@ by performing simple substitutions (not full macros):
 #(* 3 (+ %1 %2)) ; => (fn [x y] (* 3 (+ x y)))
 ```
 
-## That's it for Syntax
+## 就这些语法了
 
-You need to know more than syntax to be proficient in a language, of course.
-But you should now know enough to be comfortable looking around at examples and
-reasoning about how data is being evaluated and passed around:
+要熟练使用 ClojureScript 当然是需要了解更多的语法的.
+不过了解了上面这些语法, 你应该可以比较舒服地查看各种例子了,
+也可以看出来数据是怎么被求值的, 怎么被到处传递的.
 
 ```clj
-; printing to the javascript console
+; 在 Console 中打印
 (js/console.log "Hello World!")
 
-; creating local bindings (constants)
+; 创建局部的绑定(常量)
 (let [a (+ 1 2)
       b (* 2 3)]
   (js/console.log "The value of a is" a)
   (js/console.log "The value of b is" b))
 
-; generate a sequence of numbers
+; 创建数字的序列
 (range 4) ; => (0 1 2 3)
 
-; generate first four multiples of 3
+; 生成前 4 个自然数乘以 3 的结果
 (map #(* % 3) (range 4))           ;=> (0 3 6 9)
 
-; count elements in a sequence
+; 序列中的元素个数
 (count "Bob")     ; => 3
 (count [4 5 2 3]) ; => 4
 
-; select three letter names from a list
+; 从列表中筛选出三个字母组成的名字
 (def names ["Bob" "David" "Sue"])
 (filter #(= (count %) 3) names) ; => ("Bob" "Sue")
 ```
 
-(Don't worry about getting lost in parentheses.  All modern text editors will
-highlight the corresponding ones and will indent your code automatically for
-readability, as is standard in every other language.)
+(需要担心圆括号太多而迷失. 所有的现代文本编辑器都可以做到配对的括号的高亮, 甚至自动缩进代码来保证可读性, 就跟其他语言标准的做法一样.)
 
-## ClojureScript vs JSX in HTML templating
+## HTML 模板语法中的 ClojureScript 对比 JSX
 
-See [Jumping from HTML to ClojureScript](https://github.com/shaunlebron/jumping-from-html-to-clojurescript) to see how ClojureScript's syntax solves the verbosity/flexibility problems faced in the JS community by [JSX].
+阅读 [Jumping from HTML to ClojureScript](https://github.com/shaunlebron/jumping-from-html-to-clojurescript) 来了解 ClojureScript 语法怎样解决 JavaScript 社区中 JSX 解决的冗长性(verbosity?)和灵活性的问题.
 
 [Jumping from HTML to ClojureScript]:https://github.com/shaunlebron/jumping-from-html-to-clojurescript
 [JSX]:https://facebook.github.io/react/docs/jsx-in-depth.html
 
-## A complete reference
+## 完整的手册
 
-The syntax section of the [ClojureScript API reference] is a comprehensive look at
-the possible syntax forms and even shows the source code for how each are read/parsed.
+[ClojureScript API 手册]的语法章节可以找到所有可能的语法形式, 甚至能从源码中找到怎样进行读取和解析.
 
 [syntax section]:https://github.com/cljsinfo/cljs-api-docs/blob/catalog/INDEX.md#syntax
-[ClojureScript API reference]:http://cljs.github.io/api
+[ClojureScript API 手册]:http://cljs.github.io/api
 
-## Useful Resources
+## 实用资源
 
-Here are the resources and steps that I took while learning ClojureScript.
-(Most resources covering Clojure also apply to ClojureScript, since they
-share a significant subset with each other.)
+下面是我在学习 ClojureScript 时候的一些资源和步骤. (大部分介绍 Clojure 的资源对于 ClojureScript 也适用, 因为两者共享了很大的交集.)
 
 1. Reading through the [ClojureScript Wiki](https://github.com/clojure/clojurescript/wiki)
 1. Reading the book [ClojureScript Up and Running](http://synrc.com/publications/cat/Functional%20Languages/Clojure/Oreilly.ClojureScript.Up.and.Running.Oct.2012.pdf)
@@ -236,4 +224,3 @@ share a significant subset with each other.)
 1. Experimenting in <http://clojurescript.net/> for ClojureScript REPL with a browser context.
 1. Reading docstrings of functions I encounter with `(doc <funcname>)` in REPL.
 1. [Miscellaneous ClojureScript things to know](https://github.com/shaunlebron/ClojureSheet#clojurescript-stuff)
-

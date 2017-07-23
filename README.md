@@ -1,8 +1,6 @@
 ![cljs](img/cljs.png)
 
-Translations: [中文](README.zh.md).
-
-> __如果你注释想试试__, 可以看看这个[交互式教程](http://chimeces.com/cljs-browser-repl/).
+> __If you just wanna try something__, check out the [interactive tutorial](http://chimeces.com/cljs-browser-repl/).
 
 Hello, this is my attempt at a very concise guide to ClojureScript's syntax!
 ClojureScript is a Lisp dialect for front-end web development.  It compiles to
@@ -22,41 +20,41 @@ succinctly as possible with this guide.
 
 [Parinfer]:http://shaunlebron.github.io/parinfer/
 
-## 语法
+## Syntax
 
-这是__literal data(字面量数据)__:
+There is __literal data__:
 
 ```clj
-; number(数字)
+; number
 1.23
 
-; string(字符串)
+; string
 "foo"
 
-; keyword(关键字, 就像字符串, 但是用于 map 的键)
+; keyword (like strings, but used as map keys)
 :foo
 
-; vector(向量, 或者说数组, array)
+; vector (array)
 [:bar 3.14 "hello"]
 
-; map(关联数字, associative array)
+; map (associative array)
 {:msg "hello" :pi 3.14 :primes [2 3 5 7 11 13]}
 
-; set(distinct elements, 元素唯一)
+; set (distinct elements)
 #{:bar 3.14 "hello"}
 ```
 
-这是__symbolic data(符号化数据)__:
+And there is __symbolic data__:
 
 ```clj
-; symbol(符号, 表示一个有名字的值)
+; symbol (represents a named value)
 foo
 
-; list(链表, 表示一次"调用")
+; list (represents a "call")
 (foo :bar 3.14)
 ```
 
-#### 运行
+#### Evaluation
 
 ClojureScript can evaluate data to create a new "value" from it.
 
@@ -218,9 +216,11 @@ the possible syntax forms and even shows the source code for how each are read/p
 [syntax section]:https://github.com/cljsinfo/cljs-api-docs/blob/catalog/INDEX.md#syntax
 [ClojureScript API reference]:http://cljs.github.io/api
 
-## 实用资源
+## Useful Resources
 
-下面是我在学习 ClojureScript 时候的一些资源和步骤. (大部分介绍 Clojure 的资源对于 ClojureScript 也适用, 因为两者共享了很大的交集.)
+Here are the resources and steps that I took while learning ClojureScript.
+(Most resources covering Clojure also apply to ClojureScript, since they
+share a significant subset with each other.)
 
 1. Reading through the [ClojureScript Wiki](https://github.com/clojure/clojurescript/wiki)
 1. Reading the book [ClojureScript Up and Running](http://synrc.com/publications/cat/Functional%20Languages/Clojure/Oreilly.ClojureScript.Up.and.Running.Oct.2012.pdf)
