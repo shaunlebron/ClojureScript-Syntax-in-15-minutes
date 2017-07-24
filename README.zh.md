@@ -1,7 +1,5 @@
 ![cljs](img/cljs.png)
 
-Translations: [中文](README.zh.md).
-
 > __如果你注释想试试__, 可以看看这个[交互式教程](http://chimeces.com/cljs-browser-repl/).
 
 Hello, 我在在尝试给 ClojureScript 语法写一份简明的教程.
