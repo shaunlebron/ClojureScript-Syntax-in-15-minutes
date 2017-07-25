@@ -19,7 +19,7 @@ ClojureScript 在根本上就和 JavaScript 和其他诸如 Dart, CoffeeScript �
 
 ## 语法
 
-这是__literal data(字面量数据)__:
+这是 __literal data(字面量数据)__:
 
 ```clj
 ; number(数字)
@@ -41,7 +41,7 @@ ClojureScript 在根本上就和 JavaScript 和其他诸如 Dart, CoffeeScript �
 #{:bar 3.14 "hello"}
 ```
 
-还有__symbolic data(符号化数据)__:
+还有 __symbolic data(符号化数据)__:
 
 ```clj
 ; symbol(符号, 表示一个有名字的值)
@@ -63,13 +63,13 @@ ClojureScript 可以对数据求值从而创建出新的"值".
     [:bar 3.14 "hello"]  ; => [:bar 3.14 "hello"]
     ```
 
-1. __符号__求值之后得到绑定在上面的数值:
+1. __符号__ 求值之后得到绑定在上面的数值:
 
     ```clj
     foo                  ; => 3
     ```
 
-1. __list__求值之后得到"调用"的结果.
+1. __list__ 求值之后得到"调用"的结果.
 
     ```clj
     (+ 1 2 3)            ; => 6
@@ -79,7 +79,7 @@ ClojureScript 可以对数据求值从而创建出新的"值".
 
 #### 调用
 
-如果列表的第一个元素是一个__函数__, 那么其余元素会被求值并传给它 ([prefix notation](http://en.wikipedia.org/wiki/Polish_notation)).
+如果列表的第一个元素是一个 __函数__, 那么其余元素会被求值并传给它 ([prefix notation](http://en.wikipedia.org/wiki/Polish_notation)).
 
 ```clj
 ; 字符串合并函数
@@ -99,7 +99,7 @@ ClojureScript 可以对数据求值从而创建出新的"值".
 11
 ```
 
-如果列表的第一个元素是一个__特殊形式(Special Form)__, 那么其余元素传递给它时不做求值.
+如果列表的第一个元素是一个 __特殊形式(Special Form)__, 那么其余元素传递给它时不做求值.
 (总共有 [22 的特殊形式](https://clojure.org/reference/special_forms).)
 
 ```clj
