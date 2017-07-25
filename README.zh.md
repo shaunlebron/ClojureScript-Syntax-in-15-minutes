@@ -1,17 +1,17 @@
 ![cljs](img/cljs.png)
 
-> __如果你注释想试试__, 可以看看这个[交互式教程](http://chimeces.com/cljs-browser-repl/).
+> __如果你只是想试试__, 可以看看这个[交互式教程](http://chimeces.com/cljs-browser-repl/).
 
-Hello, 我在在尝试给 ClojureScript 语法写一份简明的教程.
+Hello, 我在尝试给 ClojureScript 语法写一份简明的教程！
 ClojureScript 是一门适用于 Web 前端开发的 Lisp 方言, 它被编译到 JavaScript 在浏览器中使用.
 
-ClojureScript 在根本上就和 JavaScript 或者其他编译到 JavaScript 的语言不一样, 比如和 Dart, CoffeeScript 和 TypeScript.
-它使用了更强大的语法, 但也更简单. 也有一些其他一些语法之外的区别,
-比如说默认采用不可变性, 用来解决状态可变的对象造成"新型 spaghetti code",
+ClojureScript 在根本上就和 JavaScript 和其他诸如 Dart, CoffeeScript 和 TypeScript 之类的编译到 JavaScript 的语言不一样.
+它使用了更强大而简单的语法. 也有一些其他一些语法之外的区别,
+比如说默认采用不可变性, 用来解决状态可变的对象造成"新的意面式代码",
 同时提供正常的状态管理功能用来实现语言级别的数据绑定.
 
 我相信对于新手来说 ClojureScript 最大的障碍在于他令人感到陌生的语法.
-在这份教程里, 我希望能尽可能平常并且简洁解释一遍.
+在这份教程里, 我希望能尽可能清晰而简明地说明它.
 
 > __同时__, 如果你需要为 ClojureScript 找一个更简单的管理括号的方案, 请了解一下 [Parinfer].
 
@@ -34,14 +34,14 @@ ClojureScript 在根本上就和 JavaScript 或者其他编译到 JavaScript 的
 ; vector(向量, 或者说数组, array)
 [:bar 3.14 "hello"]
 
-; map(关联数字, associative array)
+; map(关联数组, associative array)
 {:msg "hello" :pi 3.14 :primes [2 3 5 7 11 13]}
 
 ; set(distinct elements, 元素唯一)
 #{:bar 3.14 "hello"}
 ```
 
-这是 __symbolic data(符号化数据)__:
+还有 __symbolic data(符号化数据)__:
 
 ```clj
 ; symbol(符号, 表示一个有名字的值)
@@ -53,7 +53,7 @@ foo
 
 #### 求值
 
-ClojureScript 可以对数据求值从而创建出新的"数值".
+ClojureScript 可以对数据求值从而创建出新的"值".
 
 1. 字面量数据求值之后得到自身, 显然地:
 
@@ -85,14 +85,14 @@ ClojureScript 可以对数据求值从而创建出新的"数值".
 ; 字符串合并函数
 (str "Hello " "World")  ; => "Hello World"
 
-; 运算函数
+; 算术函数
 (= a b)     ; 等式(true 或者 false)
 (+ a b)     ; 求和
 (- a b)     ; 求差
 (* a b c)   ; 求积
 (< a b c)   ; true if a < b < c
 
-; 求值步
+; 求值步骤
 (+ k (* 2 4))   ; 这里假设 k 求值得到 3
 (+ 3 (* 2 4))   ; (* 2 4) 求值得到 8
 (+ 3 8)         ; (+ 3 8) 求值得到 11
@@ -112,11 +112,11 @@ ClojureScript 可以对数据求值从而创建出新的"数值".
 (def k 3)       ; <-- 注意这个 k 不会被求值
                 ;     (def 需要 k 这个符号, 而不是它的值)
 
-; 创建一个 greeting 函数
-(fn [username]              ; <-- 期望参数是 Vector 格式的
+; 创建一个打招呼的函数
+(fn [username]              ; <-- 所期望的参数向量
   (str "Hello " username))
 
-; oops, give the function a name
+; 哦对了，给这个函数取个名字
 (def greet (fn [username]
   (str "Hello " username)))
 
@@ -124,12 +124,12 @@ ClojureScript 可以对数据求值从而创建出新的"数值".
 ```
 
 如果列表的第一个元素是个 __Macro__, 那么其余元素传给它时不做求值,
-但是调用之后的结果是经过求值. 用下面这个图形对它们的区别做一下展示:
+但是调用之后的结果是经过求值的. 用下面这个示意图来说明它们的区别:
 
 ![calls](img/calls.png)
 
 求值过程上的区别使得 Macro 可以作为生成代码的函数使用.
-比如 `defn` 这个 Macro 展开成前面例子中遇到的 `def` 和 `fn`:
+比如 `defn` 这个 Macro 展开成了 `def` 和 `fn`，前面例子中我们是分开使用的:
 
 ```clj
 ; 用 defn 这个 Macro 创建一个具名函数
@@ -146,10 +146,10 @@ __应用开发者极少需要为他们自己创建 Macros__, 但这项功能对�
 
 #### 简单的替换
 
-有几个 [Macro 字符](http://clojure.org/reader#The%20Reader--Macro%20characters)被用来提供简单的替换, 让语言变得更简洁(不全是 Macro).
+有几个 [Macro 字符](http://clojure.org/reader#The%20Reader--Macro%20characters)被用来进行简单的替换, 这使语言变得更简洁(不全是 Macro).
 
 ```clj
-; 简单的函数的一种简写
+; 简单函数的一种简写
 ; #(...) => (fn [args] (...))
 
 #(* 3 %)         ; => (fn [x] (* 3 x))
@@ -159,12 +159,12 @@ __应用开发者极少需要为他们自己创建 Macros__, 但这项功能对�
 
 ## 就这些语法了
 
-要熟练使用 ClojureScript 当然是需要了解更多的语法的.
-不过了解了上面这些语法, 你应该可以比较舒服地查看各种例子了,
-也可以看出来数据是怎么被求值的, 怎么被到处传递的.
+要熟练使用 ClojureScript 仅仅了解语法是不够的.
+不过了解了上面这些语法, 你应该可以比较轻松地查看各种例子了,
+也可以推理数据是怎么被求值的, 怎么被到处传递的.
 
 ```clj
-; 在 Console 中打印
+; 在 JavaScript Console 中打印
 (js/console.log "Hello World!")
 
 ; 创建局部的绑定(常量)
@@ -188,7 +188,7 @@ __应用开发者极少需要为他们自己创建 Macros__, 但这项功能对�
 (filter #(= (count %) 3) names) ; => ("Bob" "Sue")
 ```
 
-(需要担心圆括号太多而迷失. 所有的现代文本编辑器都可以做到配对的括号的高亮, 甚至自动缩进代码来保证可读性, 就跟其他语言标准的做法一样.)
+(不需要担心圆括号太多而迷失. 所有的现代文本编辑器都可以做到配对的括号的高亮, 甚至自动缩进代码来保证可读性, 就跟其他语言标准的做法一样.)
 
 ## HTML 模板语法中的 ClojureScript 对比 JSX
 
@@ -199,7 +199,7 @@ __应用开发者极少需要为他们自己创建 Macros__, 但这项功能对�
 
 ## 完整的手册
 
-[ClojureScript API 手册]的语法章节可以找到所有可能的语法形式, 甚至能从源码中找到怎样进行读取和解析.
+[ClojureScript API 手册]的语法章节可以找到所有可能的语法形式, 甚至还显示了源码怎样进行读取和解析.
 
 [syntax section]:https://github.com/cljsinfo/cljs-api-docs/blob/catalog/INDEX.md#syntax
 [ClojureScript API 手册]:http://cljs.github.io/api
