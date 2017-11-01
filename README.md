@@ -225,7 +225,7 @@ Here are the resources and steps that I took while learning ClojureScript.
 share a significant subset with each other.)
 
 1. Reading through the [ClojureScript Wiki](https://github.com/clojure/clojurescript/wiki)
-1. Reading the book [ClojureScript Up and Running](http://synrc.com/publications/cat/Functional%20Languages/Clojure/Oreilly.ClojureScript.Up.and.Running.Oct.2012.pdf)
+1. Reading the book [ClojureScript Up and Running](http://ns.synrc.com/publications/cat/Functional%20Languages/Clojure/Oreilly.ClojureScript.Up.and.Running.Oct.2012.pdf)
 1. Reading the book [Clojure Programming](http://bit.ly/clojurebook)
 1. Doing [ClojureScript Koans](http://clojurescriptkoans.com)
 1. Reading [Clojure Style Guide](https://github.com/bbatsov/clojure-style-guide)
